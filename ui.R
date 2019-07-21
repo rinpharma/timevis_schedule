@@ -1,4 +1,5 @@
 library(timevis)
+library(gt)
 
 source("ui-helpers.R")
 
@@ -8,7 +9,11 @@ fluidPage(
     tags$link(href = "style.css", rel = "stylesheet"),
 
     # Favicon
-    tags$link(rel = "shortcut icon", type="image/x-icon", href="http://daattali.com/shiny/img/favicon.ico"),
+    tags$link(
+      rel = "shortcut icon",
+      type="image/x-icon",
+      href="http://rinpharma.com/favicon-32x32.png"
+      ),
 
     # Facebook OpenGraph tags
     tags$meta(property = "og:title", content = share$title),
@@ -32,7 +37,7 @@ fluidPage(
     div(id = "subtitle",
         "DRAFT - Subject to change"),
     div(id = "subsubtitle",
-        "Code for this schedule forked from the timevis docs - a package by",
+        "Code for this schedule was forked from an app originally built by",
         tags$a(href = "http://deanattali.com/", "Dean Attali"),
         HTML("&bull;"),
         "Available",
@@ -43,17 +48,21 @@ fluidPage(
   tabsetPanel(
     id = "mainnav",
     tabPanel(
-      div(icon("users"), "Groups"),
+      div(icon("calendar"), "Full schedule"),
+      gt_output("full_schedule")
+    ),
+    tabPanel(
+      div(icon("clock"), "Timeline"),
       timevisOutput("timelineGroups")
     ),
     tabPanel(
-      div(icon("question"), "Usage"),
+      div(icon("question"), "Notes"),
       div(id = "usage-tab", includeMarkdown("www/help.md"))
     )
   ),
   div(class = "sourcecode",
       "The exact code for all the timelines in this app is",
-      tags$a(href = "https://github.com/daattali/timevis/tree/master/inst/example",
+      tags$a(href = "https://github.com/rinpharma",
              "on GitHub")
   )
 )

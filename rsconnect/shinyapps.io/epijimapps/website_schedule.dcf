@@ -1,0 +1,12 @@
+name: website_schedule
+title: website_schedule
+username:
+account: epijimapps
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1040196
+bundleId: 2245486
+url: https://epijimapps.shinyapps.io/website_schedule/
+when: 1563483333.3948
+asMultiple: FALSE
+asStatic: FALSE
