@@ -7,7 +7,18 @@ fluidPage(
   title = "R/Pharma 2019 schedule",
   tags$head(
     tags$link(href = "style.css", rel = "stylesheet"),
-
+    # bigger loading box
+    tags$style(
+      HTML(".shiny-notification {
+              height: 100px;
+              width: 800px;
+              position:fixed;
+              top: calc(50% - 50px);;
+              left: calc(50% - 400px);;
+            }
+           "
+      )
+    ),
     # Favicon
     tags$link(
       rel = "shortcut icon",
@@ -39,9 +50,6 @@ fluidPage(
     div(id = "subsubtitle",
         "Code for this schedule was forked from an app originally built by",
         tags$a(href = "http://deanattali.com/", "Dean Attali"),
-        HTML("&bull;"),
-        "Available",
-        tags$a(href = "https://github.com/daattali/timevis", "on GitHub"),
         HTML("&bull;")
     )
   ),
@@ -61,8 +69,8 @@ fluidPage(
     )
   ),
   div(class = "sourcecode",
-      "The exact code for all the timelines in this app is",
-      tags$a(href = "https://github.com/rinpharma",
-             "on GitHub")
+      "Return to the conference site via",
+      tags$a(href = "http://rinpharma.com",
+             "clicking here (it will go to rinpharma.com")
   )
 )
