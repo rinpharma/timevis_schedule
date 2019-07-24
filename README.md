@@ -3,7 +3,7 @@ Generate 2019 conference schedule
 
 ## Details
 
-Last run: 2019-07-24 22:46:18 by blackj9.
+Last run: 2019-07-24 23:35:21 by blackj9.
 
 ## Make the main schedule table
 
@@ -96,7 +96,7 @@ Last run: 2019-07-24 22:46:18 by blackj9.
       tab_options(
         stub_group.background.color = '#3c8dbc'
       ) %>%
-      tab_header(title = "R/Pharma schedule")
+      tab_header(title = "R/Pharma 2019 schedule")
 ```
 
 Save table.

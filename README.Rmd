@@ -85,7 +85,7 @@ Last run: `r Sys.time()` by `r Sys.getenv("LOGNAME")`.
       tab_options(
         stub_group.background.color = '#3c8dbc'
       ) %>%
-      tab_header(title = "R/Pharma schedule")
+      tab_header(title = "R/Pharma 2019 schedule")
 ```
 
 Save table.
