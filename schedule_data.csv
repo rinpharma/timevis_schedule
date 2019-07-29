@@ -52,7 +52,7 @@ Date,Time,Room,Title,Speaker,Abstract
 2019-08-23 - Friday,8:00 AM - 8:45 AM,TBC,Breakout / Focused Discussion TBD,TBD,NA
 2019-08-23 - Friday,8:00 AM - 8:45 AM,TBC,Breakout / Focused Discussion TBD,TBD,NA
 2019-08-23 - Friday,9:00 AM - 9:15 AM,Auditorium,Opening Remarks,NA,NA
-2019-08-23 - Friday,9:15 AM - 10:00 AM,Auditorium,Third Keynote: TBD,Aedin Culhane (needs topic),NA
+2019-08-23 - Friday,9:15 AM - 10:00 AM,Auditorium,Third Keynote: TBD,Aedin Culhane,NA
 2019-08-23 - Friday,10:00 AM - 10:20 AM,Auditorium,Your Missing Step in Reproducible R Programming: Continuous Deployment,Chase Clark,"The past few years have shown vast improvements in workflows for reproducible and distributable research within the R ecosystem. At satRday Chicago everyone in the audience said they used R Markdown, however only one person raised their hand when asked if they could associate their reports back to the code version that generated it. Since continuous integration is quickly becoming commonplace in the R community, continuous deployment (CD) is a logical and easy step to add to your workflow to enhance reproducibility. I will demo associating R Markdown to the code version that produced it and automating the build and release of both executable and cloud-based Shiny apps. Finally, an announcement of the electricShine package for creating Electron based Shiny apps will highlight the power of using CD with production-level Shiny apps."
 2019-08-23 - Friday,10:20 AM - 10:30 AM,Auditorium,LT10,Volha Tryputsen,NA
 2019-08-23 - Friday,10:30 AM - 10:50 AM,Auditorium,RT13,Pavan Vaddady,NA
