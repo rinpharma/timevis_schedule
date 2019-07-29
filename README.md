@@ -3,7 +3,7 @@ Generate 2019 conference schedule
 
 ## Details
 
-Last run: 2019-07-29 10:15:12 by blackj9.
+Last run: 2019-07-29 10:30:18 by blackj9.
 
 ## Make the main schedule table
 
@@ -43,6 +43,7 @@ Last run: 2019-07-29 10:15:12 by blackj9.
     ##   type = col_character(),
     ##   speaker = col_character(),
     ##   speaker_id = col_character(),
+    ##   room = col_character(),
     ##   title = col_character(),
     ##   abstract = col_character(),
     ##   link = col_character()
@@ -56,24 +57,43 @@ Last run: 2019-07-29 10:15:12 by blackj9.
       # if date missing - delete
       filter(
         !is.na(date)
-      )
-
-    # Create a gt table based on a preprocessed `countrypops`
-    g_table <- schedule_data %>%
+      ) %>%
       mutate(
         Date = paste(date,"-", weekdays(date)),
         Time = paste0(start_time," - ",end_time),
         Type = type,
+        Room = room,
         Title = case_when(
           !is.na(title) ~ title,
           TRUE ~ `talk/workshop_desc`
         ),
         Speaker = speaker
-      ) %>%
+      )
+    
+    # Tidy
+    schedule_data <- schedule_data %>%
+      select(
+        Date,
+        Time,
+        Room,
+        Title,
+        Speaker,
+        Abstract = abstract
+      )
+    
+
+    # Save table
+    write_csv(
+      schedule_data,
+      "schedule_data.csv"
+      )
+
+    # Create a gt table based on a preprocessed `countrypops`
+    g_table <- schedule_data  %>%
       dplyr::select(
         Date,
         Time,
-        Type,
+        Room,
         Title,
         Speaker
       ) %>%
@@ -88,7 +108,7 @@ Last run: 2019-07-29 10:15:12 by blackj9.
         groupname_col = "Date"
       ) %>%
       text_transform(
-        locations = cells_data(columns = "Type"),
+        locations = cells_data(columns = "Room"),
         fn = function(x) {
           # Let's paste together the `speed` and `type`
           # vectors to create HTML text replacing `x`

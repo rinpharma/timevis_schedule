@@ -7,7 +7,7 @@ output: github_document
 library(gt)
 library(timevis)
 library(googlesheets)
-library(dplyr)
+library(tidyverse)
 ```
 
 ## Details
@@ -42,25 +42,44 @@ Last run: `r Sys.time()` by `r Sys.getenv("LOGNAME")`.
       # if date missing - delete
       filter(
         !is.na(date)
-      )
-
-
-    # Create a gt table based on a preprocessed `countrypops`
-    g_table <- schedule_data %>%
+      ) %>%
       mutate(
         Date = paste(date,"-", weekdays(date)),
         Time = paste0(start_time," - ",end_time),
         Type = type,
+        Room = room,
         Title = case_when(
           !is.na(title) ~ title,
           TRUE ~ `talk/workshop_desc`
         ),
         Speaker = speaker
-      ) %>%
+      )
+    
+    # Tidy
+    schedule_data <- schedule_data %>%
+      select(
+        Date,
+        Time,
+        Room,
+        Title,
+        Speaker,
+        Abstract = abstract
+      )
+    
+
+    # Save table
+    write_csv(
+      schedule_data,
+      "schedule_data.csv"
+      )
+
+
+    # Create a gt table based on a preprocessed `countrypops`
+    g_table <- schedule_data  %>%
       dplyr::select(
         Date,
         Time,
-        Type,
+        Room,
         Title,
         Speaker
       ) %>%
@@ -75,7 +94,7 @@ Last run: `r Sys.time()` by `r Sys.getenv("LOGNAME")`.
         groupname_col = "Date"
       ) %>%
       text_transform(
-        locations = cells_data(columns = "Type"),
+        locations = cells_data(columns = "Room"),
         fn = function(x) {
           # Let's paste together the `speed` and `type`
           # vectors to create HTML text replacing `x`
