@@ -3,7 +3,7 @@ Generate 2019 conference schedule
 
 ## Details
 
-Last run: 2019-07-24 23:35:21 by blackj9.
+Last run: 2019-07-29 10:15:12 by blackj9.
 
 ## Make the main schedule table
 
@@ -43,7 +43,9 @@ Last run: 2019-07-24 23:35:21 by blackj9.
     ##   type = col_character(),
     ##   speaker = col_character(),
     ##   speaker_id = col_character(),
-    ##   title = col_character()
+    ##   title = col_character(),
+    ##   abstract = col_character(),
+    ##   link = col_character()
     ## )
 
 ``` r
