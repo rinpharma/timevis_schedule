@@ -3,7 +3,7 @@ Generate 2019 conference schedule
 
 ## Details
 
-Last run: 2019-07-29 22:37:32 by blackj9.
+Last run: 2019-08-01 19:43:06 by blackj9.
 
 ## Make the main schedule table
 
